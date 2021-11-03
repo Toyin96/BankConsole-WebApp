@@ -9,4 +9,4 @@ You must have dotNET installed on your computer before you can clone and clone r
 Clone or download this repository to your filesystem using the following code:
 
 Create a new folder and enter: git clone https://github.com/Toyin96/BankConsole-WebApp.git
-Next, cd into the project directory and enter go run main.go to fire the program.
+Next, cd into the project directory and enter `dotNET run` command to fire the program.

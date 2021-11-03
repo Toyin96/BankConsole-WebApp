@@ -6,7 +6,12 @@ namespace Bank_Console_App
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Transaction toyinTransction = new Transaction("WEM120A", "Payment of school fees", 
+                "cash transafer", 23,233.72, 794,203,22.02)
+
+            string status = toyinTransction.PerformTransaction();
+            Console.WriteLine(status);
+            Console.WriteLine(toyinTransction.GetTransactionBalance);
         }
     }
 
@@ -20,17 +25,30 @@ namespace Bank_Console_App
         public decimal balance { get; set; }
 
         public Transaction(string transactionId, DateTime transactionDate, string description,
-            string transactionType, string amount, string balance){
+            string transactionType, decimal amount, decimal balance){
             this.transactionId = transactionId;
-            this.date = transactionDate;
+            this.date = new DateTime(transactionDate);
             this.description = description;
             this.type = transactionType;
             this.amount = amount;
             this.balance = balance;
         }
 
-        string PerformTransaction(decimal amount){
-            if (amount < this.balance){
+        public Transaction(string transactionId, string description, string transactionType, 
+            decimal amount, decimal balance){
+            this.transactionId = transactionId;
+            this.description = description;
+            this.type = transactionType;
+            this.amount = amount;
+            this.balance = balance;
+        }
+
+        public Transaction(){
+        
+        }
+
+        public string PerformTransaction(){
+            if (this.amount < this.balance){
                 this.balance -= amount;
                 return "success";
             }else{
@@ -38,19 +56,19 @@ namespace Bank_Console_App
             }
         }
 
-        string GetTransactionID(){
+        public string GetTransactionID(){
             return this.transactionId;
         }
 
-        DateTime GetTransactionDate(){
+        public DateTime GetTransactionDate(){
             return this.date;
         }
 
-        void SetTransactionType(string typeName){
+        public void SetTransactionType(string typeName){
             this.type = typeName;
         }
 
-        DateTime GetTransactionBalance(){
+        public DateTime GetTransactionBalance(){
             return this.balance;
         }
 

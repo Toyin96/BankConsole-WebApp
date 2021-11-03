@@ -52,7 +52,7 @@ namespace Bank_Console_App
                 this.balance -= amount;
                 return "success";
             }else{
-                return "invalid transaction";
+                return "transaction amount can't be larger than available balance";
             }
         }
 
